@@ -295,7 +295,7 @@ const mainForm=document.getElementById('mainForm');
 const sourceInfo=document.getElementById('sourceInfo');
 const closeFormBtn=document.getElementById('closeFormBtn');
 const SCRIPT_URL="https://script.google.com/macros/s/AKfycbxpCXaOHNvxbg98T-CdGV1f2RTFyGNKYw0BIsCWrGmaO3KbgiJSGvOpohpwzg7hoh-1/exec"; // Updated URL
-const WA_NUMBER_INT="917489335818"; // Manshi's number
+const WA_NUMBER_INT="917999820654"; // Manshi's number
 
 function openForm(source='site'){
     sourceInfo.value=source;
