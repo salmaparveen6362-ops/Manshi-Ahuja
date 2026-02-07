@@ -10,16 +10,6 @@
     <meta property="og:image" content="https://i.ibb.co/vxmv378b/Whats-App-Image-2026-01-09-at-5-36-12-PM.jpg">
     <meta name="theme-color" content="#4169E1">
 
-    <!-- Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
-
-    <!-- Bootstrap -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
-
-    <!-- Lucide Icons -->
-    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
-
     <!-- Meta Pixel Code -->
     <script>
     !function(f,b,e,v,n,t,s)
@@ -36,6 +26,16 @@
     <noscript><img height="1" width="1" style="display:none"
     src="https://www.facebook.com/tr?id=880370994857857&ev=PageView&noscript=1"/></noscript>
     <!-- End Meta Pixel Code -->
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+
+    <!-- Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
 
     <!-- Instagram Icon CSS -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
@@ -296,7 +296,7 @@ const mainForm=document.getElementById('mainForm');
 const sourceInfo=document.getElementById('sourceInfo');
 const closeFormBtn=document.getElementById('closeFormBtn');
 const SCRIPT_URL="https://script.google.com/macros/s/AKfycbxpCXaOHNvxbg98T-CdGV1f2RTFyGNKYw0BIsCWrGmaO3KbgiJSGvOpohpwzg7hoh-1/exec";
-const WA_NUMBER_INT="917999820654"; // Updated to 7999820654
+const WA_NUMBER_INT="917999820654";
 
 function openForm(source='site'){
     sourceInfo.value=source;
@@ -324,11 +324,9 @@ mainForm.addEventListener('submit',e=>{
     const gender=document.getElementById('inp_gender').value;
     const profession=document.getElementById('inp_profession').value;
     if(!name||phone.length<6||!age||!gender||!profession){alert('Please fill all fields correctly.');return}
-    // send to sheet
     const fd=new FormData();
     fd.append('name',name);fd.append('phone',phone);fd.append('age',age);fd.append('gender',gender);fd.append('profession',profession);fd.append('source',sourceInfo.value||'Website');fd.append('timestamp',new Date().toISOString());
     fetch(SCRIPT_URL,{method:'POST',body:fd,mode:'no-cors'}).catch(()=>{});
-    // whatsapp - leads go directly to 7999820654
     const msg=encodeURIComponent(`Hello Ma'am,\n\nI am interested in your program. Here are my details:\n\nName: ${name}\nPhone: ${phone}\nAge: ${age}\nGender: ${gender}\nProfession: ${profession}\n\nPlease share next steps. Thank you!`);
     if(typeof fbq!=='undefined'){fbq('track','Contact');fbq('track','Lead',{content_name:'WhatsApp Form Submission',content_category:'Lead Generation',content_source:sourceInfo.value})}
     window.open(`https://wa.me/${WA_NUMBER_INT}?text=${msg}`,'_blank');
